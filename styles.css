@@ -1,0 +1,70 @@
+/* ===== LAYOUT FLEXBOX E GRID ===== */
+.header-content {
+    display: flex; /* Flexbox para header */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter-content {
+    display: flex; /* Flexbox para contadores */
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.productions-grid {
+    display: grid; /* Grid para galeria */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* ===== DESIGN - CORES, FONTES, ESPAÇAMENTOS ===== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+    /* Sistema de espaçamento consistente */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
+
+/* ===== RESPONSIVIDADE - MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Mostra menu hamburguer */
+    }
+
+    nav ul {
+        display: none; /* Esconde menu normal */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    nav ul.active {
+        display: flex; /* Mostra menu quando ativo */
+    }
+
+    .productions-grid {
+        grid-template-columns: 1fr; /* Grid de 1 coluna no mobile */
+    }
+}
+
+/* ===== CÓDIGO LIMPO - CLASSES ORGANIZADAS ===== */
+.production-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s; /* Animação suave */
+}
+
+.production-card:hover {
+    transform: translateY(-5px); /* Efeito hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
